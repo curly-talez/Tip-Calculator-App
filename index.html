@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&family=Space+Mono&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+
+<body>
+  <main>
+    <header>
+      <div>SPLT</div>
+      <div>TTER</div>
+    </header>
+    <form class="section-container">
+      <section id="input-section">
+        <div class="bill">Bill</div>
+        <div class="input-container">
+          <input type="number" id="bill-amount" value="0" onfocus="this.value=''" onchange="updateTipCalc()">
+          <img src="./images/icon-dollar.svg" alt="dollar">
+        </div>
+        <div class="bill select-tip">Select Tip %</div>
+        <div class="btn-container" id="btn-set">
+          <button type="button" class="btn active" onclick="calculateTip(5)">5%</button>
+          <button type="button" class="btn" onclick="calculateTip(10)">10%</button>
+          <button type="button" class="btn" onclick="calculateTip(15)">15%</button>
+          <button type="button" class="btn" onclick="calculateTip(25)">25%</button>
+          <button type="button" class="btn" onclick="calculateTip(50)">50%</button>
+          <button type="button" class="btn" onclick="showCustomTipInput()" id="custom-btn">Custom</button>
+          <input type="number" id="custom-input" onchange="calculateCustomTip(this.value)">
+        </div>
+        <div class="bill select-tip">Number of People</div>
+        <div class="input-container">
+          <input type="number" id="number-people" value="1" onfocus="this.value=''" onchange="updateTipCalc()">
+          <img src="./images/icon-person.svg" alt="person">
+        </div>
+      </section>
+      <section id="result-section">
+        <div class="result-conatainer">
+          <!-- tip amount section -->
+          <div class="result-item">
+            <div class="result-item-text-container">
+              <div class="result-item-heading">Tip amount</div>
+              <div class="result-item-per-person">/ person</div>
+            </div>
+            <div class="result-item-amount" id="tip-per-person">0</div>
+          </div>
+          <!-- total -->
+          <div class="result-item">
+            <div class="result-item-text-container">
+              <div class="result-item-heading">Total</div>
+              <div class="result-item-per-person">/ person</div>
+            </div>
+            <div class="result-item-amount" id="amount-per-person">0.0</div>
+          </div>
+          <!-- reset button -->
+          <button type="reset" id="btn-reset" onclick="resetAmount()">RESET</button>
+        </div>
+      </section>
+    </form>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Krishnaveni</a>.
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
